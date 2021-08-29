@@ -1,4 +1,4 @@
-package com.example;
+package com.example.spark;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

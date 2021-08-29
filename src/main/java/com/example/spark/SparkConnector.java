@@ -1,20 +1,15 @@
-package com.example;
+package com.example.spark;
 
+import com.example.constants.Constants;
 import org.apache.spark.sql.SparkSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+public class SparkConnector {
+    private static final Logger logger = LoggerFactory.getLogger(SparkConnector.class);
+    public static boolean underTest = false;
 
-public class Util {
-    private static final Logger logger = LoggerFactory.getLogger(Util.class);
-
-    private Util() {
-    }
-
-    public static SparkSession getSparkSession(boolean underTest) {
+    public static SparkSession getSparkSession() {
         if (underTest) {
             logger.info("creating local spark session...");
             return SparkSession.builder()
@@ -30,11 +25,4 @@ public class Util {
                     .getOrCreate();
         }
     }
-
-    public static void loadProperties(String config, Properties properties) throws IOException {
-        logger.info("reading config file {} ", config);
-        FileInputStream input = new FileInputStream(config);
-        properties.load(input);
-    }
-
 }
