@@ -2,6 +2,7 @@
 An example of how to connect snowflake with spark
 
 Class Dependencies:
+
 ![Class dependencies](src/main/resources/Flow.png)
 
 # Executing the job
